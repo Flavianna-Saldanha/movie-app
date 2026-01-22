@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import ButtonAppBar from "./components/menu/Menu";
 
 function App() {
