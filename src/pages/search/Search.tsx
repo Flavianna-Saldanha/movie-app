@@ -1,7 +1,16 @@
+import SearchIcon from "@mui/icons-material/Search";
+
 const Search = () => {
 	return (
 		<div>
-			<div>Search Page</div>
+			<nav>
+				<form>
+					<input type="text" placeholder="Busque um filme" />
+					<button type="submit">
+						<SearchIcon />
+					</button>
+				</form>
+			</nav>
 		</div>
 	);
 };
