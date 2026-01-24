@@ -1,10 +1,10 @@
 import SearchIcon from "@mui/icons-material/Search";
-import { Autocomplete, Box, Button, Chip, TextField, Toolbar } from "@mui/material";
+import { Autocomplete, Box, Button, TextField, Toolbar } from "@mui/material";
 import TuneIcon from "@mui/icons-material/Tune";
 import type { Movie } from "../../types/movieType";
 
 interface SearchProps {
-	movies: Movie[];
+ 	movies?: Movie[];
 }
 
 const Search = ({ movies }: SearchProps) => {
