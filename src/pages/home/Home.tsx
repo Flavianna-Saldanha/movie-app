@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import type { Movie } from "../../types/movieType";
+import { Box, Container, Typography } from "@mui/material";
 
 const movieURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
-
 
 const Home = () => {
 	const [topMovies, setTopMovies] = useState<Movie[]>([]);
@@ -26,13 +26,13 @@ const Home = () => {
 
 
 	return (
-		<div>
+		<Box>
 			{topMovies.map((movie) => 
-				<div key={movie.id}>	
-					<div>{movie.title}</div>
-				</div>,
+				<Container key={movie.id}>	
+					<Typography variant="body1">{movie.title}</Typography>
+				</Container>,
 			)}
-		</div>
+		</Box>
 	);
 };
 

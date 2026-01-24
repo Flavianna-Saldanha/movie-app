@@ -1,8 +1,10 @@
+import { Box, Container } from "@mui/material";
+
 const Movie = () => {
 	return (
-		<div>
-			<div>Movie Page</div>
-		</div>
+		<Box>
+			<Container>Movie Page</Container>
+		</Box>
 	);
 };
 

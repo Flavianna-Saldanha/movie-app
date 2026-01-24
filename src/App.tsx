@@ -2,17 +2,19 @@ import { Link, Outlet } from "react-router-dom";
 import Search from "./pages/search/Search";
 import ButtonAppBar from "./components/menu/Menu";
 import MovieIcon from "@mui/icons-material/Movie";
+import { Box, Typography } from "@mui/material";
 
 function App() {
 	return (
-		<div className="App">
+		<Box className="App">
 			<ButtonAppBar/>
 			<Search />
-			<h2>
-				<Link to="/"><MovieIcon />Movie App</Link>
-			</h2>
+			<Typography variant="h5" sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+				<MovieIcon />
+				<Link to="/">Movie App</Link>
+			</Typography>
 			<Outlet />
-		</div>
+		</Box>
 	);
 }
 
