@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { movieType } from "../../types/movieType";
 import { Box, Container, Typography } from "@mui/material";
+import MovieCard from "../../components/movieCard/MovieCard";
 
 const movieURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -34,7 +35,7 @@ const Home = () => {
 				)}
 				
 				{listMovies.length > 0 && listMovies.map((movie) => (
-					<Typography key={movie.id} variant="body1">{movie.title}</Typography>
+					<MovieCard key={movie.id} movie={movie} />
 				))}
 			</Box>
 		</Container>
