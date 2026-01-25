@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { movieType } from "../../types/movieType";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import MovieCard from "../../components/movieCard/MovieCard";
 
 const movieURL = import.meta.env.VITE_API;
@@ -33,22 +33,13 @@ const Home = () => {
 				mx: 20,
 			}}
 		>
-			<Typography 
-				variant="h4" 
-				sx={{ 
-					fontSize: 40, 
-					textAlign: "center", 
-					margin: "2rem 0 1rem" }}
-			>
-					Melhores filmes:
-			</Typography>
-
 			<Box
 				sx={{
 					display: "flex",
 					flexWrap: "wrap",
 					justifyContent: "center",
 					gap: 3,
+					mt: 8,
 				}}
 			>
 				{listMovies.length === 0 && (
