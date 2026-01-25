@@ -4,6 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import MovieIcon from "@mui/icons-material/Movie";
 import { Avatar } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function ButtonAppBar() {
 	return (
@@ -32,8 +33,18 @@ export default function ButtonAppBar() {
 							<MovieIcon sx={{ color: "#fff" }} />
 						</Box>
 
-						<Typography variant="h6" sx={{ fontWeight: "bold" }}>
-              Movie App
+						<Typography
+							variant="h6"
+							component={Link}
+							to="/"
+							sx={{
+								fontWeight: "bold",
+								textDecoration: "none",
+								color: "inherit",
+								cursor: "pointer",
+							}}
+						>
+							Movie App
 						</Typography>
 					</Box>
 
