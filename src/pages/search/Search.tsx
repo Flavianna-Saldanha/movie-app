@@ -1,5 +1,5 @@
 import SearchIcon from "@mui/icons-material/Search";
-import { Autocomplete, Box, Button, TextField, Toolbar } from "@mui/material";
+import { Autocomplete, Box, Button, Container, TextField, Toolbar } from "@mui/material";
 import TuneIcon from "@mui/icons-material/Tune";
 import type { Movie } from "../../types/movieType";
 

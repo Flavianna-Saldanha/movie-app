@@ -27,18 +27,51 @@ const Home = () => {
 
 
 	return (
-		<Container>
-			<Typography variant="h4">Melhores filmes:</Typography>
-			<Box>
+		<Box
+			sx={{
+				width: "auto",
+				mx: 20,
+			}}
+		>
+			<Typography 
+				variant="h4" 
+				sx={{ 
+					fontSize: 40, 
+					textAlign: "center", 
+					margin: "2rem 0 1rem" }}
+			>
+					Melhores filmes:
+			</Typography>
+
+			<Box
+				sx={{
+					display: "flex",
+					flexWrap: "wrap",
+					justifyContent: "center",
+					gap: 3,
+				}}
+			>
 				{listMovies.length === 0 && (
-					<Typography variant="body1">Carregando filmes...</Typography>
+					<Typography variant="body1">
+						Carregando filmes...
+					</Typography>
 				)}
-				
-				{listMovies.length > 0 && listMovies.map((movie) => (
-					<MovieCard key={movie.id} movie={movie} />
+
+				{listMovies.map((movie) => (
+					<Box
+						key={movie.id}
+						sx={{
+							width: 260, 
+							display: "flex",
+							justifyContent: "center",
+							flexShrink: 0,
+						}}
+					>
+						<MovieCard movie={movie} />
+					</Box>
 				))}
 			</Box>
-		</Container>
+		</Box>
 	);
 };
 
