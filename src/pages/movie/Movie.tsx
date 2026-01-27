@@ -62,7 +62,7 @@ const Movie = () => {
 				display: "flex",
 				flexDirection: { xs: "column", md: "row" },
 				flexWrap: "wrap",
-				gap: 5,
+				gap: { xs: 5, md: 1 },
 				p: 2,
 			}}
 		>
@@ -83,7 +83,7 @@ const Movie = () => {
 							src={imageUrl + movie.poster_path}
 							alt={movie.title}
 							sx={{ borderRadius: 2,
-								width: "100%",
+								width: "90%",
 								objectFit: "cover",
 								 }}
 						/>
@@ -93,13 +93,13 @@ const Movie = () => {
 						<Box
 							sx={{
 								backgroundColor: "#24242427",
+								width: "90%",
 								display: "flex",
 								flexDirection: "column",
 								gap: 5,
 								pt: 4,
 								textAlign: "center",
 								borderRadius: 4,
-
 							}}
 						>
 							<Box sx={{ position: "relative", textAlign: "start", pl: { xs: 6, sm: 8, md: 12 } }}>

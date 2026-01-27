@@ -61,7 +61,7 @@ const Home = () => {
 					<Box
 						key={movie.id}
 						sx={{
-							width: 260, 
+							width: 250, 
 							display: "flex",
 							justifyContent: "center",
 							flexShrink: 0,
