@@ -77,14 +77,13 @@ const Home = () => {
 			<Container 
 				sx={{
 					mt: 10,
-					border: 0.5,
-					p: 5,
+					p: 7,
 					textAlign: "center",
 					borderRadius: 5,
 					backgroundColor: "#24242427",
 				}}
 			>
-				<Typography variant="body1">
+				<Typography variant="body1" sx={{ fontStyle: "italic" }}>
 					{`Mostrando ${showing} de ${listMovies.length} filmes.`}
 				</Typography>
 			</Container>
