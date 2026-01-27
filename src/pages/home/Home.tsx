@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Box, Pagination, Stack, Typography } from "@mui/material";
+import { Box, Container, Pagination, Stack, Typography } from "@mui/material";
 import MovieCard from "../../components/movieCard/MovieCard";
 import type { movieType } from "../../types/movieType";
 
@@ -17,6 +17,8 @@ const Home = () => {
 
 	const moviesVisible = listMovies.slice(startIndex, endIndex);
 	const totalPages = Math.ceil(listMovies.length / itensPerPage);
+
+	const showing = Math.min(endIndex, listMovies.length);
 
 	const getTopRatedMovies = async(url: string) => {
 		const res = await fetch(url);
@@ -71,6 +73,21 @@ const Home = () => {
 					</Box>
 				))}
 			</Box>
+
+			<Container 
+				sx={{
+					mt: 10,
+					border: 0.5,
+					p: 5,
+					textAlign: "center",
+					borderRadius: 5,
+					backgroundColor: "#24242427",
+				}}
+			>
+				<Typography variant="body1">
+					{`Mostrando ${showing} de ${listMovies.length} filmes.`}
+				</Typography>
+			</Container>
 
 			<Stack 
 				sx={{
