@@ -9,32 +9,27 @@ const apiKey = import.meta.env.VITE_API_KEY;
 const Home = () => {
 	const [listMovies, setListMovies] = useState<movieType[]>([]);
 	const [page, setPage] = useState(1);
+	const [totalPages, setTotalPages] = useState(0);
 
-	const itensPerPage = 8;
+	const maxPages = 20;
 
-	const startIndex = (page - 1) * itensPerPage;
-	const endIndex = startIndex + itensPerPage;
-
-	const moviesVisible = listMovies.slice(startIndex, endIndex);
-	const totalPages = Math.ceil(listMovies.length / itensPerPage);
-
-	const showing = Math.min(endIndex, listMovies.length);
-
-	const getTopRatedMovies = async(url: string) => {
+	const getTopRatedMovies = async(pageNumber: number) => {
+		const url = `${movieURL}top_rated?api_key=${apiKey}&language=pt-BR&page=${pageNumber}`;
+		
 		const res = await fetch(url);
 		const data = await res.json();
 
 		setListMovies(data.results);
+		setTotalPages(Math.min(data.total_pages, maxPages));
 	};
 
 	useEffect(() => {
 		const fetchTopRatedMovies = async () => {
-			const topRatedUrl = `${movieURL}top_rated?api_key=${apiKey}&language=pt-BR`;
-			await getTopRatedMovies(topRatedUrl);
+			await getTopRatedMovies(page);
 		};
 
 		fetchTopRatedMovies();
-	}, []);
+	}, [page]);
 
 
 	return (
@@ -59,7 +54,7 @@ const Home = () => {
 					</Typography>
 				)}
 
-				{moviesVisible.map((movie) => (
+				{listMovies.map((movie) => (
 					<Box
 						key={movie.id}
 						sx={{
@@ -77,14 +72,14 @@ const Home = () => {
 			<Stack 
 				sx={{
 					alignItems: "center",
-					mt: 8,
+					my: 8,
 				}}>
 				<Pagination 
 					count={totalPages}
 					page={page}
 					onChange={(_, value) => setPage(value)} 
 					 sx={{
-						width: { xs: 200 },
+						width: 350,
 						"& .MuiPaginationItem-root": {
 							color: "var(--text-primary)",
 						},
