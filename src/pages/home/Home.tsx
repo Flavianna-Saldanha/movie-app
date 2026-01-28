@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Box, Container, Pagination, Stack, Typography } from "@mui/material";
+import { Box, Pagination, Stack, Typography } from "@mui/material";
 import MovieCard from "../../components/movieCard/MovieCard";
 import type { movieType } from "../../types/movieType";
 
@@ -73,20 +73,6 @@ const Home = () => {
 					</Box>
 				))}
 			</Box>
-
-			<Container 
-				sx={{
-					mt: 10,
-					p: 7,
-					textAlign: "center",
-					borderRadius: 5,
-					backgroundColor: "#24242427",
-				}}
-			>
-				<Typography variant="body1" sx={{ fontStyle: "italic" }}>
-					{`Mostrando ${showing} de ${listMovies.length} filmes.`}
-				</Typography>
-			</Container>
 
 			<Stack 
 				sx={{
