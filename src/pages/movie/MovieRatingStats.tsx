@@ -10,34 +10,36 @@ export const MovieRatingStats = ({ movie }: Props) => {
 	const rating = movie.vote_average / 2;
 
 	const ratingCalc = (star: number) => {
-		// calcula valor (entre -∞ e +∞)
-		const value = rating - (star - 1);
-		// se menor que 0 → retorna 0
-		if (value <= 0) return 0;
-		// se maior que 1 → retorna 1
-		if (value >= 1) return 100;
+		 const distance = Math.abs(rating - star);
+		const value = 1 - distance / 4;
 
-		// no final → multiplica por 100
-		return value * 100;
+		return Math.max(0, Math.min(1, value)) * 100;
 	};
 
 	return (
-		<Box 
+		<Box
 			sx={{
+				width: { xs: "90%", sm:"75%", md: "100%" },
+				m: "0 auto",
 				px: 3,
 				py: 4,
 				backgroundColor: "#24242427",
 				borderRadius: 5,
 			}}
 		>
-			<Typography variant="h6" sx={{ mb: 4, textAlign: { xs: "center", md: "start" } }}>
-				Avaliações do público
+			<Typography
+				variant="h6"
+				sx={{ mb: 4, textAlign: { xs: "center", md: "start" } }}
+			>
+        Avaliações do público
 			</Typography>
-			<Box 
+
+			<Box
 				sx={{
 					display: "flex",
 					flexDirection: { xs: "column", md: "row" },
 					alignItems: "center",
+					gap: 4,
 				}}
 			>
 				<Box
@@ -46,23 +48,30 @@ export const MovieRatingStats = ({ movie }: Props) => {
 						gap: 1,
 						flexDirection: "column",
 						alignItems: "center",
-						flex:"1",
+						flex: 1,
 					}}
-				>	
-					<Typography variant="h2" sx={{ fontWeight: "bold" }}>{rating.toFixed(1)}</Typography>
+				>
+					<Typography variant="h2" sx={{ fontWeight: "bold" }}>
+						{rating.toFixed(1)}
+					</Typography>
 
-					<Rating name="read-only" value={rating} readOnly />
+					<Rating value={rating} readOnly />
 
-					<Typography variant="body1" sx={{ color: "var(--text-secondary)" }}>
-						Média Global
+					<Typography
+						variant="body1"
+						sx={{ color: "var(--text-secondary)" }}
+					>
+            Média Global
 					</Typography>
 				</Box>
 
-				<Box sx={{
-					flex:"2",
-					border: "1px solid red",
-
-				}}>
+				<Box
+					sx={{
+						flex: 2,
+						width: "100%",
+						minWidth: { xs: "100%", md: "auto" },
+					}}
+				>
 					{[5, 4, 3, 2, 1].map((star) => (
 						<Box
 							key={star}
@@ -95,7 +104,6 @@ export const MovieRatingStats = ({ movie }: Props) => {
 							</Box>
 						</Box>
 					))}
-
 				</Box>
 			</Box>
 		</Box>
