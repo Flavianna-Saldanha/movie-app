@@ -333,7 +333,7 @@ const Movie = () => {
 			>
 				<Typography 
 					variant="h5"
-					sx={{ borderLeft: "4px solid var(--bg-tertiary)", pl: 2, my: 3, fontWeight: "bold" }}
+					sx={{ borderLeft: "4px solid var(--bg-tertiary)", pl: 2, my: 5, fontWeight: "bold" }}
 				>   
 							Você também pode gostar
 				</Typography>
