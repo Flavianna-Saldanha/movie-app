@@ -11,6 +11,7 @@ import TimelapseIcon from "@mui/icons-material/Timelapse";
 import StarIcon from "@mui/icons-material/Star";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import AddIcon from "@mui/icons-material/Add";
+import { MovieRatingStats } from "./MovieRatingStats";
 
 const movieURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -294,6 +295,10 @@ const Movie = () => {
 								</Box>
 							</Box>
 						)}
+
+						<Box>
+							<MovieRatingStats movie={movie} />
+						</Box>
 					</Box>
 				</>
 			)}
